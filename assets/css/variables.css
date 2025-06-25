@@ -1,0 +1,19 @@
+/* ====================================================== */
+/* VARIABLES CSS GLOBALES                                 */
+/* ====================================================== */
+/* Ce fichier centralise toutes les variables de design
+    (couleurs, polices, etc.) pour une maintenance facile.
+*/
+
+:root {
+    /* Polices de caractères */
+    --font-main: 'Poppins', sans-serif;
+
+    /* Palette de couleurs */
+    --color-primary: #00838F;     /* Bleu-vert tropical pour les éléments actifs */
+    --color-secondary: #FFB300;   /* Jaune-orangé pour les accents et la sélection */
+    --color-background: #F4F4F4;  /* Gris très clair pour le fond des pages */
+    --color-text-dark: #333333;    /* Gris foncé pour le texte principal */
+    --color-text-light: #FFFFFF;
+    --color-overlay: rgba(0, 0, 0, 0.7); /* Noir semi-transparent pour les fonds d'overlay */
+}

@@ -1,0 +1,120 @@
+/* ====================================================== */
+/* COMPOSANT : VITRINE VIDÉO (APERCU)                     */
+/* ====================================================== */
+
+.video-showcase {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.video-showcase__player {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-showcase__controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.3);
+    transition: opacity 0.3s;
+}
+
+/* Gère l'affichage des contrôles quand la vidéo joue */
+.video-showcase.is-playing .video-showcase__controls {
+    opacity: 0;
+}
+.video-showcase.is-playing:hover .video-showcase__controls {
+    opacity: 1;
+}
+
+.play-pause-btn {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    transition: transform 0.2s;
+}
+
+.play-pause-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Styles pour la vue descriptive qui apparaît par-dessus la vidéo */
+.description-showcase {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    color: var(--color-text-light);
+    
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    
+    transition: opacity 0.5s;
+}
+
+.description-showcase.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.description-showcase__text-content {
+    flex-shrink: 0;
+}
+
+.description-showcase__title {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.description-showcase__description {
+    font-size: 1rem;
+    max-width: 80ch;
+}
+
+.description-showcase__image-grid {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.description-showcase__image-grid img {
+    display: block;
+    max-width: 40%;
+    max-height: 80%;
+    height: auto;
+    border-radius: 5px;
+    border: 2px solid #fff;
+}
+
+.description-showcase__footer {
+    text-align: right;
+}

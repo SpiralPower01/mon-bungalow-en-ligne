@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Location Bungalow [Votre Nom ou Marque]</title>
+    <meta
+      name="description"
+      content="Réservez des nuits de rêve dans notre bungalow d'exception. Calme, confort et vue imprenable."
+    />
+
+    <link rel="icon" href="assets/images/Icon.png" type="image/png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <div class="background-container">
+      <video
+        id="backgroundVideo"
+        autoplay
+        muted
+        loop
+        poster="assets/images/00.jpg"
+      >
+        <source src="assets/videos/OpeningVideo.mp4" type="video/mp4" />
+        Votre navigateur ne supporte pas la balise vidéo.
+      </video>
+    </div>
+
+    <header class="main-header">
+      <div class="reservation-bar">
+        <div class="reservation-bar__group">
+          <label for="date-arrival" class="reservation-bar__label"
+            >Arrivée</label
+          >
+          <input
+            type="text"
+            id="date-arrival"
+            class="reservation-bar__value"
+            placeholder="--/--/----"
+            readonly
+          />
+        </div>
+        <div class="reservation-bar__group">
+          <label for="date-departure" class="reservation-bar__label"
+            >Départ</label
+          >
+          <input
+            type="text"
+            id="date-departure"
+            class="reservation-bar__value"
+            placeholder="--/--/----"
+            readonly
+          />
+        </div>
+        <div class="reservation-bar__group">
+          <label for="occupants" class="reservation-bar__label"
+            >Voyageurs</label
+          >
+          <select id="occupants" class="reservation-bar__value">
+            <option value="1">1 personne</option>
+            <option value="2">2 personnes</option>
+            <option value="3">3 personnes</option>
+            <option value="4">4 personnes</option>
+          </select>
+
+          <div class="reservation-bar__group price-summary">
+            <span class="price-summary__nights">-- nuits</span>
+            <span class="price-summary__total">-- €</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="doubleCalendar">
+        <div class="calendar-main-controls">
+          <button id="prev-month-btn" aria-label="Mois précédent">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button id="next-month-btn" aria-label="Mois suivant">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="calendar-wrapper">
+          <div class="calendar-instance">
+            <div id="month-year-1" class="calendar-instance__title"></div>
+            <div class="calendar-grid calendar-header">
+              <div>Lun</div>
+              <div>Mar</div>
+              <div>Mer</div>
+              <div>Jeu</div>
+              <div>Ven</div>
+              <div>Sam</div>
+              <div>Dim</div>
+            </div>
+            <div id="dates-grid-1" class="calendar-grid"></div>
+          </div>
+
+          <div class="calendar-instance">
+            <div id="month-year-2" class="calendar-instance__title"></div>
+            <div class="calendar-grid calendar-header">
+              <div>Lun</div>
+              <div>Mar</div>
+              <div>Mer</div>
+              <div>Jeu</div>
+              <div>Ven</div>
+              <div>Sam</div>
+              <div>Dim</div>
+            </div>
+            <div id="dates-grid-2" class="calendar-grid"></div>
+          </div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="login-logout-btn" class="button-primary">
+          Se connecter
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#apercu">Aperçu</a></li>
+          <li><a href="#informations">Informations Utiles</a></li>
+          <li><a href="#fonctionnement">Fonctionnement de la location</a></li>
+          <li><a href="#bonnes-adresses">Le guide des bonnes adresses</a></li>
+          <li class="protected-content" style="display: none">
+            <a href="#offres-partenaires">Offres partenaires</a>
+          </li>
+          <li><a href="#contact">Nous Contacter</a></li>
+        </ul>
+      </nav>
+
+      <div class="page-container">
+        <button class="close-button">&times;</button>
+
+        <section id="apercu" class="page-content">
+          <div class="video-showcase">
+            <video class="video-showcase__player" poster="assets/images/00.jpg">
+              <source src="assets/videos/OpeningVideo.mp4" type="video/mp4" />
+              Votre navigateur ne supporte pas la vidéo.
+            </video>
+            <div class="video-showcase__controls">
+              <button class="play-pause-btn" aria-label="Lancer la vidéo">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+            <div class="description-showcase is-hidden">
+              <div class="description-showcase__text-content">
+                <h3 class="description-showcase__title">Terrasse Ombragée</h3>
+                <p class="description-showcase__description">
+                  Idéale pour profiter de moments de détente à l'extérieur tout
+                  en étant protégé du soleil.
+                </p>
+              </div>
+              <div class="description-showcase__image-grid">
+                <img src="assets/images/00.jpg" alt="Terrasse du bungalow" />
+              </div>
+              <div class="description-showcase__footer">
+                <button class="continue-btn">
+                  Continuer la visite <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="informations" class="page-content" style="display: none">
+          <div class="info-section">
+            <h2 class="info-section__title">Équipements & Caractéristiques</h2>
+            <div class="info-grid">
+              <div class="info-block">
+                <h3 class="info-block__title">Pour Votre Confort</h3>
+                <ul class="amenity-list">
+                  <li class="amenity-list__item">
+                    <i class="fas fa-snowflake"></i
+                    ><span>Climatisation dans les deux chambres</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-wifi"></i
+                    ><span>Wi-Fi haut débit (CANALBOX-1B4CC7)</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-tshirt"></i><span>Lave-linge</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-iron"></i
+                    ><span>Fer et table à repasser</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-box"></i
+                    ><span
+                      >Espaces de rangement (dressing en tissu, étagères)</span
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="info-block">
+                <h3 class="info-block__title">Cuisine & Repas</h3>
+                <ul class="amenity-list">
+                  <li class="amenity-list__item">
+                    <i class="fas fa-refrigerator"></i
+                    ><span>Réfrigérateur</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-fire-burner"></i
+                    ><span>Plaque de cuisson au gaz</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-microwave"></i
+                    ><span>Four à micro-ondes</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-coffee"></i
+                    ><span>Cafetière et bouilloire</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-blender"></i
+                    ><span>Broyeur (Blender) et grille-pain</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-utensils"></i
+                    ><span>Vaisselle et couverts pour 6 personnes</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="info-block">
+                <h3 class="info-block__title">Salle de Bain</h3>
+                <ul class="amenity-list">
+                  <li class="amenity-list__item">
+                    <i class="fas fa-shower"></i
+                    ><span>Douche à l'italienne</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-wind"></i><span>Sèche-cheveux</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-soap"></i
+                    ><span>Serviettes de bain fournies (6)</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="info-block">
+                <h3 class="info-block__title">Divertissement & Extérieur</h3>
+                <ul class="amenity-list">
+                  <li class="amenity-list__item">
+                    <i class="fas fa-tv"></i
+                    ><span
+                      >Téléviseur avec partage de connexion et fonction
+                      "cast"</span
+                    >
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-umbrella-beach"></i
+                    ><span>Terrasse privée avec salon de jardin</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-car"></i
+                    ><span>Place de parking sur la propriété</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-video"></i
+                    ><span>Caméra de sécurité extérieure</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="fonctionnement" class="page-content" style="display: none;">
+    <div class="info-section">
+        <h2 class="info-section__title">Fonctionnement de la Location</h2>
+        
+        <div class="info-grid">
+            <div class="info-block">
+                <h3 class="info-block__title"><i class="fas fa-key"></i> Arrivée & Départ</h3>
+                <p>Vous serez accueilli personnellement par un hôte pour la remise des clés et une présentation du logement. Un état des lieux sera effectué à l'arrivée et au départ.</p>
+                <p><strong>Heures :</strong> Arrivée à partir de 15:00 / Départ avant 11:00.</p>
+            </div>
+
+            <div class="info-block">
+                <h3 class="info-block__title"><i class="fas fa-parking"></i> Stationnement</h3>
+                <p>Une place de stationnement est disponible pour votre véhicule directement sur la propriété, à l'endroit qui vous sera indiqué.</p>
+            </div>
+
+            <div class="info-block">
+                <h3 class="info-block__title"><i class="fas fa-ruler-combined"></i> Règles du Logement</h3>
+                <ul class="amenity-list">
+                    <li class="amenity-list__item"><i class="fas fa-smoking-ban"></i><span>Non-fumeur (cendrier sur la terrasse)</span></li>
+                    <li class="amenity-list__item"><i class="fas fa-paw"></i><span>Animaux non acceptés</span></li>
+                    <li class="amenity-list__item"><i class="fas fa-users-slash"></i><span>Pas de fêtes ni d'événements</span></li>
+                </ul>
+            </div>
+
+            <div class="info-block">
+                <h3 class="info-block__title"><i class="fas fa-trash-alt"></i> Gestion des Déchets</h3>
+                <p>Utilisez les containers vert (ménagers) et jaune (recyclables). Le verre se dépose au pied du container jaune.</p>
+            </div>
+
+            <div class="info-block">
+                <h3 class="info-block__title"><i class="fas fa-bolt"></i> Consommation Électrique</h3>
+                <p>Un forfait de 60 kWh/semaine est inclus. Adoptez un usage écoresponsable en éteignant lumières et climatisation lors de vos absences.</p>
+            </div>
+
+             <div class="info-block">
+                <h3 class="info-block__title"><i class="fas fa-shield-alt"></i> Sécurité</h3>
+                <p>Une caméra de surveillance extérieure sécurise la propriété. Les fenêtres teintées garantissent votre intimité.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section
+          id="bonnes-adresses"
+          class="page-content"
+          style="display: none"
+        ></section>
+
+        <section
+          id="offres-partenaires"
+          class="page-content protected-content"
+          style="display: none"
+        ></section>
+
+        <section
+          id="contact"
+          class="page-content"
+          style="display: none"
+        ></section>
+      </div>
+    </main>
+
+    <footer class="main-footer"></footer>
+
+    <div id="login-modal" class="modal-overlay is-hidden">
+      <div class="login-container">
+        <button class="close-button modal-close-btn">&times;</button>
+        <h3>Accès Privé</h3>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">Identifiant</label>
+            <input type="text" id="username" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" required />
+          </div>
+          <p class="login-error-message"></p>
+          <button type="submit" class="button-primary">Connexion</button>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="assets/js/main.js" defer></script>
+  </body>
+</html>

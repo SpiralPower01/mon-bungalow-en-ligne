@@ -1,0 +1,65 @@
+/* ====================================================== */
+/* COMPOSANT : SECTIONS DE CONTENU (INFO, RÈGLES)         */
+/* ====================================================== */
+
+.info-section__title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+}
+
+/* Grille multi-colonnes responsive */
+.info-grid {
+    display: grid;
+    /* Crée autant de colonnes que possible de 320px minimum */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.info-block {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.info-block__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.info-block__title i {
+    color: var(--color-primary);
+}
+
+.info-block p + p {
+    margin-top: 0.5rem;
+}
+
+/* Style partagé pour les listes d'équipements */
+.amenity-list {
+    list-style: none;
+    padding: 0;
+}
+
+.amenity-list__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.amenity-list__item i {
+    color: var(--color-primary);
+    width: 20px;
+    text-align: center;
+}

@@ -1,0 +1,45 @@
+/* ====================================================== */
+/* RESET CSS ET STYLES DE BASE                            */
+/* ====================================================== */
+
+/* "Reset" de base.
+    Supprime les marges par défaut des navigateurs et
+    assure un calcul des tailles plus intuitif.
+*/
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles globaux appliqués à toute la page */
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+
+    /* Technique Flexbox pour que le footer reste en bas */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Fait en sorte que le contenu principal grandisse pour pousser le footer */
+main {
+    flex-grow: 1;
+}
+
+/* Style pour le conteneur de la vidéo d'arrière-plan */
+.background-container video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -10; /* Placé sur une couche inférieure */
+    object-fit: cover; /* Couvre tout l'écran sans se déformer */
+}

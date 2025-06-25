@@ -1,0 +1,26 @@
+/* ====================================================== */
+/* FICHIER CSS PRINCIPAL - IMPORTE TOUS LES MODULES       */
+/* ====================================================== */
+/* Ce fichier ne contient aucun style. Il sert uniquement
+   à importer les modules CSS dans le bon ordre.
+*/
+
+/* 1. Variables et polices globales. Doit être en premier. */
+@import url('variables.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* 2. Reset et styles de base */
+@import url('base.css');
+
+/* 3. Styles de la mise en page principale */
+@import url('layout/header.css');
+@import url('layout/navigation.css');
+
+/* 4. Styles des composants réutilisables */
+@import url('components/buttons.css');
+@import url('components/calendar.css');
+@import url('components/modals.css');
+@import url('components/showcase.css');
+@import url('components/content.css');
+/* Note : Nous ajouterons les styles pour les sections 'info' et 'rules' ici plus tard si nécessaire,
+   mais pour l'instant ils partagent les styles d'autres composants. */

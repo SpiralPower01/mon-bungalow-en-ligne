@@ -1,0 +1,47 @@
+/* ====================================================== */
+/* MISE EN PAGE : NAVIGATION PRINCIPALE                   */
+/* ====================================================== */
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px); /* Effet verre dépoli */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-nav ul {
+    list-style: none; /* Retire les puces */
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main-nav a {
+    text-decoration: none; /* Retire le soulignement */
+    color: var(--color-text-dark);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Style au survol de la souris */
+.main-nav a:hover {
+    color: var(--color-text-light);
+    background-color: var(--color-primary);
+}
+
+/* Style de l'onglet actuellement sélectionné */
+.main-nav a.active {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+/* Classe pour les contenus protégés par login */
+.protected-content {
+    display: none;
+}

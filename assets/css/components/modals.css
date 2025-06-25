@@ -1,0 +1,112 @@
+/* ====================================================== */
+/* COMPOSANT : MODALES & OVERLAYS                         */
+/* ====================================================== */
+
+/* Style partagé par tous les overlays qui prennent tout l'écran */
+.page-container,
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color-overlay);
+    backdrop-filter: blur(8px);
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s, visibility 0.4s;
+}
+
+/* Classe pour afficher un overlay */
+.page-container.is-visible,
+.modal-overlay.is-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Style du contenu d'une page dans l'overlay principal */
+.page-content {
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    width: 80%;
+    height: 80%;
+    max-width: 1400px;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow-y: auto; /* Ajoute une barre de défilement si besoin */
+}
+
+/* Bouton de fermeture partagé par les modales */
+.close-button {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 30;
+
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.close-button:hover {
+    transform: scale(1.2);
+}
+
+/* Conteneur spécifique au formulaire de connexion */
+.login-container {
+    position: relative;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+.login-container h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.login-error-message {
+    color: #D32F2F;
+    min-height: 1.2em;
+    font-size: 0.9rem;
+}
+
+#login-form .button-primary {
+    width: 100%;
+    margin-top: 0.5rem;
+}

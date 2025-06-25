@@ -1,0 +1,41 @@
+/* ====================================================== */
+/* COMPOSANT : BOUTONS                                    */
+/* ====================================================== */
+
+/* Style pour les boutons d'action principaux (ex: Se connecter) */
+.button-primary {
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    border: none;
+    border-radius: 25px;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.button-primary:hover {
+    background-color: #ffc107; /* Jaune un peu plus clair au survol */
+    transform: translateY(-2px); /* Léger effet de soulèvement */
+}
+
+/* Style spécifique pour le bouton "Continuer la visite" */
+.continue-btn {
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    border: none;
+    border-radius: 25px;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.continue-btn:hover {
+    background-color: #ffc107;
+    transform: translateY(-2px);
+}

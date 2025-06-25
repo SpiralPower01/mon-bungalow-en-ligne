@@ -1,0 +1,65 @@
+/* ====================================================== */
+/* MISE EN PAGE : EN-TÊTE                                 */
+/* ====================================================== */
+
+.main-header {
+    /* Contexte de positionnement pour le calendrier qui est à l'intérieur */
+    position: relative;
+    
+    background-color: var(--color-text-dark);
+    color: var(--color-text-light);
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 10; /* Au-dessus de la vidéo de fond */
+
+    /* Aligne la barre de résa et le bouton de connexion */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reservation-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* Passe à la ligne sur petits écrans */
+    flex-grow: 1; /* Prend l'espace disponible */
+}
+
+.reservation-bar__group {
+    display: flex;
+    flex-direction: column;
+}
+
+.reservation-bar__label {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+}
+
+.reservation-bar__value {
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--color-background);
+    color: var(--color-text-light);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    padding: 0.25rem 0;
+}
+
+/* Garde le style pour les options de la liste déroulante */
+.reservation-bar__value option {
+    background-color: var(--color-text-dark);
+}
+
+.reservation-bar__value:focus {
+    outline: none;
+    border-bottom-color: var(--color-secondary);
+}
+
+.header-actions {
+    margin-right: 1rem;
+}
