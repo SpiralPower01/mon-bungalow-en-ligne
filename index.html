@@ -72,11 +72,10 @@
             <option value="3">3 personnes</option>
             <option value="4">4 personnes</option>
           </select>
-
-          <div class="reservation-bar__group price-summary">
-            <span class="price-summary__nights">-- nuits</span>
-            <span class="price-summary__total">-- €</span>
-          </div>
+        </div>
+        <div class="reservation-bar__group price-summary">
+          <span class="price-summary__nights">-- nuits</span>
+          <span class="price-summary__total">-- €</span>
         </div>
       </div>
 
@@ -89,7 +88,6 @@
             <i class="fas fa-chevron-right"></i>
           </button>
         </div>
-
         <div class="calendar-wrapper">
           <div class="calendar-instance">
             <div id="month-year-1" class="calendar-instance__title"></div>
@@ -104,7 +102,6 @@
             </div>
             <div id="dates-grid-1" class="calendar-grid"></div>
           </div>
-
           <div class="calendar-instance">
             <div id="month-year-2" class="calendar-instance__title"></div>
             <div class="calendar-grid calendar-header">
@@ -121,6 +118,9 @@
         </div>
       </div>
       <div class="header-actions">
+        <button id="book-now-btn" class="button-primary" disabled>
+          Réserver
+        </button>
         <button id="login-logout-btn" class="button-primary">
           Se connecter
         </button>
@@ -278,54 +278,162 @@
           </div>
         </section>
 
-        <section id="fonctionnement" class="page-content" style="display: none;">
-    <div class="info-section">
-        <h2 class="info-section__title">Fonctionnement de la Location</h2>
-        
-        <div class="info-grid">
-            <div class="info-block">
-                <h3 class="info-block__title"><i class="fas fa-key"></i> Arrivée & Départ</h3>
-                <p>Vous serez accueilli personnellement par un hôte pour la remise des clés et une présentation du logement. Un état des lieux sera effectué à l'arrivée et au départ.</p>
-                <p><strong>Heures :</strong> Arrivée à partir de 15:00 / Départ avant 11:00.</p>
-            </div>
+        <section id="fonctionnement" class="page-content" style="display: none">
+          <div class="info-section">
+            <h2 class="info-section__title">Fonctionnement de la Location</h2>
 
-            <div class="info-block">
-                <h3 class="info-block__title"><i class="fas fa-parking"></i> Stationnement</h3>
-                <p>Une place de stationnement est disponible pour votre véhicule directement sur la propriété, à l'endroit qui vous sera indiqué.</p>
-            </div>
+            <div class="info-grid">
+              <div class="info-block">
+                <h3 class="info-block__title">
+                  <i class="fas fa-key"></i> Arrivée & Départ
+                </h3>
+                <p>
+                  Vous serez accueilli personnellement par un hôte pour la
+                  remise des clés et une présentation du logement. Un état des
+                  lieux sera effectué à l'arrivée et au départ.
+                </p>
+                <p>
+                  <strong>Heures :</strong> Arrivée à partir de 15:00 / Départ
+                  avant 11:00.
+                </p>
+              </div>
 
-            <div class="info-block">
-                <h3 class="info-block__title"><i class="fas fa-ruler-combined"></i> Règles du Logement</h3>
+              <div class="info-block">
+                <h3 class="info-block__title">
+                  <i class="fas fa-parking"></i> Stationnement
+                </h3>
+                <p>
+                  Une place de stationnement est disponible pour votre véhicule
+                  directement sur la propriété, à l'endroit qui vous sera
+                  indiqué.
+                </p>
+              </div>
+
+              <div class="info-block">
+                <h3 class="info-block__title">
+                  <i class="fas fa-ruler-combined"></i> Règles du Logement
+                </h3>
                 <ul class="amenity-list">
-                    <li class="amenity-list__item"><i class="fas fa-smoking-ban"></i><span>Non-fumeur (cendrier sur la terrasse)</span></li>
-                    <li class="amenity-list__item"><i class="fas fa-paw"></i><span>Animaux non acceptés</span></li>
-                    <li class="amenity-list__item"><i class="fas fa-users-slash"></i><span>Pas de fêtes ni d'événements</span></li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-smoking-ban"></i
+                    ><span>Non-fumeur (cendrier sur la terrasse)</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-paw"></i><span>Animaux non acceptés</span>
+                  </li>
+                  <li class="amenity-list__item">
+                    <i class="fas fa-users-slash"></i
+                    ><span>Pas de fêtes ni d'événements</span>
+                  </li>
                 </ul>
-            </div>
+              </div>
 
-            <div class="info-block">
-                <h3 class="info-block__title"><i class="fas fa-trash-alt"></i> Gestion des Déchets</h3>
-                <p>Utilisez les containers vert (ménagers) et jaune (recyclables). Le verre se dépose au pied du container jaune.</p>
-            </div>
+              <div class="info-block">
+                <h3 class="info-block__title">
+                  <i class="fas fa-trash-alt"></i> Gestion des Déchets
+                </h3>
+                <p>
+                  Utilisez les containers vert (ménagers) et jaune
+                  (recyclables). Le verre se dépose au pied du container jaune.
+                </p>
+              </div>
 
-            <div class="info-block">
-                <h3 class="info-block__title"><i class="fas fa-bolt"></i> Consommation Électrique</h3>
-                <p>Un forfait de 60 kWh/semaine est inclus. Adoptez un usage écoresponsable en éteignant lumières et climatisation lors de vos absences.</p>
-            </div>
+              <div class="info-block">
+                <h3 class="info-block__title">
+                  <i class="fas fa-bolt"></i> Consommation Électrique
+                </h3>
+                <p>
+                  Un forfait de 60 kWh/semaine est inclus. Adoptez un usage
+                  écoresponsable en éteignant lumières et climatisation lors de
+                  vos absences.
+                </p>
+              </div>
 
-             <div class="info-block">
-                <h3 class="info-block__title"><i class="fas fa-shield-alt"></i> Sécurité</h3>
-                <p>Une caméra de surveillance extérieure sécurise la propriété. Les fenêtres teintées garantissent votre intimité.</p>
+              <div class="info-block">
+                <h3 class="info-block__title">
+                  <i class="fas fa-shield-alt"></i> Sécurité
+                </h3>
+                <p>
+                  Une caméra de surveillance extérieure sécurise la propriété.
+                  Les fenêtres teintées garantissent votre intimité.
+                </p>
+              </div>
             </div>
-        </div>
-    </div>
-</section>
+          </div>
+        </section>
 
         <section
           id="bonnes-adresses"
           class="page-content"
           style="display: none"
-        ></section>
+        >
+          <div class="info-section">
+            <h2 class="info-section__title">Le Guide des Bonnes Adresses</h2>
+            <div class="info-grid">
+              <div class="info-block partner">
+                <h3 class="info-block__title">
+                  <i class="fas fa-star"></i> Notre Partenaire Privilège
+                </h3>
+                <h4>LABORD' BEACH</h4>
+                <p>
+                  Restaurant et bar à tapas créole avec une vue imprenable sur
+                  la plage de l'Anse Laborde. Grillades, Cocktails, Tapas...
+                </p>
+                <p>
+                  <strong>Adresse :</strong> Plage de l’Anse Laborde, 97121
+                  Anse-Bertrand.
+                </p>
+                <p class="partner-note">
+                  N'oubliez pas votre code de réduction unique !
+                </p>
+              </div>
+
+              <div class="info-block">
+                <h3 class="info-block__title">
+                  <i class="fas fa-mountain"></i> Sites Naturels
+                </h3>
+                <ul class="amenity-list">
+                  <li>
+                    <i class="fas fa-water"></i
+                    ><span
+                      ><strong>La Pointe de la Grande Vigie :</strong> Falaises
+                      spectaculaires au point le plus au nord de l'île.</span
+                    >
+                  </li>
+                  <li>
+                    <i class="fas fa-water"></i
+                    ><span
+                      ><strong>La Porte d'Enfer :</strong> Lagon calme et
+                      limpide, idéal pour la baignade.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div class="info-block">
+                <h3 class="info-block__title">
+                  <i class="fas fa-umbrella-beach"></i> Plages à Découvrir
+                </h3>
+                <ul class="amenity-list">
+                  <li>
+                    <i class="fas fa-sun"></i
+                    ><span
+                      ><strong>Plage de la Chapelle :</strong> Idéale pour les
+                      familles et le surf.</span
+                    >
+                  </li>
+                  <li>
+                    <i class="fas fa-sun"></i
+                    ><span
+                      ><strong>Anse Pistolet :</strong> Crique secrète et
+                      préservée pour la tranquillité.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section
           id="offres-partenaires"
@@ -333,15 +441,66 @@
           style="display: none"
         ></section>
 
-        <section
-          id="contact"
-          class="page-content"
-          style="display: none"
-        ></section>
+        <section id="contact" class="page-content" style="display: none">
+          <div class="info-section">
+            <h2 class="info-section__title">Nous Contacter</h2>
+            <div class="contact-form-container">
+              <p>
+                Une question ? Une demande particulière ? N'hésitez pas à nous
+                laisser un message. Nous vous répondrons dans les plus brefs
+                délais.
+              </p>
+
+              <form
+                id="contact-form"
+                action="https://formspree.io/f/mvgrvryw"
+                method="POST"
+              >
+                <div class="form-group">
+                  <label for="name">Votre Nom</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Votre E-mail</label>
+                  <input type="email" id="email" name="_replyto" required />
+                </div>
+                <div class="form-group">
+                  <label for="message">Votre Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="button-primary">
+                  Envoyer le Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
 
     <footer class="main-footer"></footer>
+
+    <div id="booking-confirmation-modal" class="modal-overlay is-hidden">
+      <div class="confirmation-container">
+        <button class="close-button modal-close-btn">&times;</button>
+        <div class="confirmation-icon"><i class="fas fa-check-circle"></i></div>
+        <h3>Demande de réservation reçue !</h3>
+        <p>
+          Merci pour votre demande. Nous avons bien reçu les détails de votre
+          séjour et nous vous contacterons très prochainement par e-mail pour
+          confirmer la disponibilité et finaliser la réservation.
+        </p>
+        <p>
+          <strong>Votre demande sera envoyée à :</strong>
+          potorlitampha@gmail.com
+        </p>
+      </div>
+    </div>
 
     <div id="login-modal" class="modal-overlay is-hidden">
       <div class="login-container">

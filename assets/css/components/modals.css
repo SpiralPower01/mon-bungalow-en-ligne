@@ -110,3 +110,34 @@
     width: 100%;
     margin-top: 0.5rem;
 }
+
+/* Style pour la modale de confirmation */
+.confirmation-container {
+    position: relative;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.confirmation-icon {
+    font-size: 4rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.confirmation-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.confirmation-container p {
+    margin-bottom: 1rem;
+}
+
+.confirmation-container p > strong {
+    font-weight: 600;
+}

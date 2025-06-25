@@ -1,17 +1,22 @@
-// ======================================================
-// MODULE : GESTION DU CALENDRIER DE RÉSERVATION
-// ======================================================
+"use strict";
+
 import { DOM } from '../dom-loader.js';
 import { NIGHTLY_RATE, EXTRA_PERSON_RATE } from '../config.js';
 
+// --- ÉTAT INTERNE AU MODULE ---
 let displayDate = new Date();
 let startDate = null;
 let endDate = null;
 
+// --- FONCTIONS PRIVÉES DU MODULE ---
+
 function calculateAndDisplayPrice() {
+    if (!DOM.bookNowBtn) return; // Sécurité
+
     if (startDate && endDate) {
         const diffTime = endDate.getTime() - startDate.getTime();
         const numberOfNights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        
         if (numberOfNights > 0) {
             const numberOfOccupants = parseInt(DOM.occupantsSelect.value, 10);
             let currentNightlyRate = NIGHTLY_RATE;
@@ -21,13 +26,16 @@ function calculateAndDisplayPrice() {
             const totalPrice = numberOfNights * currentNightlyRate;
             DOM.nightsDisplay.textContent = `${numberOfNights} nuit${numberOfNights > 1 ? 's' : ''}`;
             DOM.priceDisplay.textContent = `${totalPrice} €`;
+            DOM.bookNowBtn.disabled = false; // Active le bouton
         } else {
             DOM.nightsDisplay.textContent = '-- nuits';
             DOM.priceDisplay.textContent = '-- €';
+            DOM.bookNowBtn.disabled = true; // Laisse le bouton désactivé
         }
     } else {
         DOM.nightsDisplay.textContent = '-- nuits';
         DOM.priceDisplay.textContent = '-- €';
+        DOM.bookNowBtn.disabled = true; // Laisse le bouton désactivé
     }
 }
 
@@ -53,6 +61,7 @@ function generateMonthGrid(date) {
     let startDayIndex = (firstDayOfMonth === 0) ? 6 : firstDayOfMonth - 1;
     const today = new Date();
     today.setHours(0, 0, 0, 0);
+
     for (let i = startDayIndex; i > 0; i--) {
         datesHTML += `<div class="date-cell inactive">${lastDateOfLastMonth - i + 1}</div>`;
     }
@@ -93,15 +102,28 @@ function handleDateClick(event) {
     calculateAndDisplayPrice();
 }
 
+
+// --- FONCTION D'INITIALISATION EXPORTÉE ---
+
 export function initCalendar() {
     if (!DOM.calendarContainer) return;
+
+    // *** CODE MANQUANT AJOUTÉ ICI ***
+    // Écouteur pour afficher/cacher le calendrier au clic sur la barre
     DOM.reservationBar.addEventListener('click', (event) => {
+        // On vérifie qu'on clique bien sur un groupe (Arrivée, Départ...)
+        // et non sur le bouton Réserver qui est maintenant à l'extérieur.
         if (event.target.closest('.reservation-bar__group')) {
             DOM.calendarContainer.classList.toggle('is-visible');
         }
     });
+    // *** FIN DU CODE MANQUANT ***
+
+    // Écouteurs pour la sélection de date
     DOM.datesGridElement1.addEventListener('click', handleDateClick);
     DOM.datesGridElement2.addEventListener('click', handleDateClick);
+
+    // Écouteurs pour la navigation entre les mois
     DOM.prevBtn.addEventListener('click', () => {
         displayDate.setMonth(displayDate.getMonth() - 1);
         renderCalendars();
@@ -110,6 +132,10 @@ export function initCalendar() {
         displayDate.setMonth(displayDate.getMonth() + 1);
         renderCalendars();
     });
+
+    // Écouteur pour le changement d'occupants
     DOM.occupantsSelect.addEventListener('change', calculateAndDisplayPrice);
+    
+    // Affiche le calendrier une première fois au chargement (il est caché par le CSS)
     renderCalendars();
 }
