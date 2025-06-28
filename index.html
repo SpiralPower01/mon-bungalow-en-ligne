@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Location Bungalow [Votre Nom ou Marque]</title>
+    <title>Location Bungalow Chez Miss'K</title>
     <meta
       name="description"
       content="Réservez des nuits de rêve dans notre bungalow d'exception. Calme, confort et vue imprenable."
@@ -15,7 +15,7 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
@@ -24,15 +24,18 @@
   </head>
   <body>
     <div class="background-container">
+      <video id="openingVideo" autoplay muted poster="assets/images/00.jpg">
+        <source src="assets/videos/OpeningVideo.mp4" type="video/mp4" />
+      </video>
+
       <video
-        id="backgroundVideo"
-        autoplay
-        muted
+        id="mainVideo"
         loop
+        muted
+        preload="auto"
         poster="assets/images/00.jpg"
       >
-        <source src="assets/videos/OpeningVideo.mp4" type="video/mp4" />
-        Votre navigateur ne supporte pas la balise vidéo.
+        <source src="assets/videos/PresentationVideo.mp4" type="video/mp4" />
       </video>
     </div>
 
@@ -142,11 +145,15 @@
       </nav>
 
       <div class="page-container">
-        <button class="close-button">&times;</button>
+        <button class="close-button">×</button>
 
         <section id="apercu" class="page-content">
           <div class="video-showcase">
-            <video class="video-showcase__player" poster="assets/images/00.jpg">
+            <video
+              class="video-showcase__player"
+              preload="auto"
+              poster="assets/images/00.jpg"
+            >
               <source src="assets/videos/OpeningVideo.mp4" type="video/mp4" />
               Votre navigateur ne supporte pas la vidéo.
             </video>
@@ -154,6 +161,22 @@
               <button class="play-pause-btn" aria-label="Lancer la vidéo">
                 <i class="fas fa-play"></i>
               </button>
+              <div class="video-extra-controls">
+                <button
+                  id="toggle-speed-btn"
+                  class="control-btn"
+                  aria-label="Vitesse de lecture"
+                >
+                  <i class="fas fa-tachometer-alt"></i> <span>x1</span>
+                </button>
+                <button
+                  id="skip-video-btn"
+                  class="control-btn"
+                  aria-label="Passer la vidéo"
+                >
+                  <i class="fas fa-forward"></i>
+                </button>
+              </div>
             </div>
             <div class="description-showcase is-hidden">
               <div class="description-showcase__text-content">
@@ -169,6 +192,20 @@
               <div class="description-showcase__footer">
                 <button class="continue-btn">
                   Continuer la visite <i class="fas fa-arrow-right"></i>
+                </button>
+                <button
+                  id="prev-scene-btn"
+                  class="button-secondary"
+                  aria-label="Scène précédente"
+                >
+                  <i class="fas fa-step-backward"></i> Scène précédente
+                </button>
+                <button
+                  id="next-scene-btn"
+                  class="button-secondary"
+                  aria-label="Scène suivante"
+                >
+                  Scène suivante <i class="fas fa-step-forward"></i>
                 </button>
               </div>
             </div>
@@ -368,7 +405,7 @@
           style="display: none"
         >
           <div class="info-section">
-            <h2 class="info-section__title">Le Guide des Bonnes Adresses</h2>
+            <h2 class="info-section__title">Guide des Bonnes Adresses</h2>
             <div class="info-grid">
               <div class="info-block partner">
                 <h3 class="info-block__title">
@@ -377,12 +414,42 @@
                 <h4>LABORD' BEACH</h4>
                 <p>
                   Restaurant et bar à tapas créole avec une vue imprenable sur
-                  la plage de l'Anse Laborde. Grillades, Cocktails, Tapas...
+                  la plage de l'Anse Laborde.
                 </p>
-                <p>
-                  <strong>Adresse :</strong> Plage de l’Anse Laborde, 97121
-                  Anse-Bertrand.
-                </p>
+                <div class="guide-item-details">
+                  <span class="address-line">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>All. de la Pointe d'Antigue, Anse-Bertrand</span>
+                  </span>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Labord%E2%80%99+Beach"
+                    target="_blank"
+                    class="nav-app-link"
+                    aria-label="Ouvrir dans une application de navigation"
+                  >
+                    <i class="fas fa-route"></i>
+                  </a>
+                </div>
+                <div class="guide-item-socials">
+                  <a
+                    href="https://www.instagram.com/labordbeach/?hl=fr"
+                    target="_blank"
+                    aria-label="Instagram de Labord' Beach"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a
+                    href="https://www.facebook.com/labordbeach/?locale=fr_FR"
+                    target="_blank"
+                    aria-label="Facebook de Labord' Beach"
+                    ><i class="fab fa-facebook"></i
+                  ></a>
+                  <a
+                    href="https://g.co/kgs/nZhr8Ap"
+                    target="_blank"
+                    aria-label="Page Google de Labord' Beach"
+                    ><i class="fab fa-google"></i
+                  ></a>
+                </div>
                 <p class="partner-note">
                   N'oubliez pas votre code de réduction unique !
                 </p>
@@ -390,44 +457,89 @@
 
               <div class="info-block">
                 <h3 class="info-block__title">
-                  <i class="fas fa-mountain"></i> Sites Naturels
+                  <i class="fas fa-water"></i> Plages & Lagons
                 </h3>
-                <ul class="amenity-list">
+                <p>Découvrez les joyaux naturels de la côte.</p>
+                <ul class="guide-list">
                   <li>
-                    <i class="fas fa-water"></i
-                    ><span
-                      ><strong>La Pointe de la Grande Vigie :</strong> Falaises
-                      spectaculaires au point le plus au nord de l'île.</span
-                    >
+                    <span>Anse Castalia</span>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Anse+Castalia+Guadeloupe"
+                      target="_blank"
+                      class="nav-app-link"
+                      aria-label="Itinéraire vers Anse Castalia"
+                      ><i class="fas fa-route"></i
+                    ></a>
                   </li>
                   <li>
-                    <i class="fas fa-water"></i
-                    ><span
-                      ><strong>La Porte d'Enfer :</strong> Lagon calme et
-                      limpide, idéal pour la baignade.</span
-                    >
+                    <span>Plage de la Chapelle</span>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Plage+de+la+Chapelle+Anse-Bertrand"
+                      target="_blank"
+                      class="nav-app-link"
+                      aria-label="Itinéraire vers Plage de la Chapelle"
+                      ><i class="fas fa-route"></i
+                    ></a>
                   </li>
                 </ul>
               </div>
 
               <div class="info-block">
                 <h3 class="info-block__title">
-                  <i class="fas fa-umbrella-beach"></i> Plages à Découvrir
+                  <i class="fas fa-compass"></i> Sites d'Intérêt
                 </h3>
-                <ul class="amenity-list">
+                <p>Des panoramas à couper le souffle.</p>
+                <ul class="guide-list">
                   <li>
-                    <i class="fas fa-sun"></i
-                    ><span
-                      ><strong>Plage de la Chapelle :</strong> Idéale pour les
-                      familles et le surf.</span
-                    >
+                    <span>La Pointe de la Grande Vigie</span>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Pointe+de+la+Grande+Vigie"
+                      target="_blank"
+                      class="nav-app-link"
+                      aria-label="Itinéraire vers La Pointe de la Grande Vigie"
+                      ><i class="fas fa-route"></i
+                    ></a>
                   </li>
                   <li>
-                    <i class="fas fa-sun"></i
-                    ><span
-                      ><strong>Anse Pistolet :</strong> Crique secrète et
-                      préservée pour la tranquillité.</span
+                    <span>La Porte d'Enfer</span>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Porte+d'Enfer+Anse-Bertrand"
+                      target="_blank"
+                      class="nav-app-link"
+                      aria-label="Itinéraire vers La Porte d'Enfer"
+                      ><i class="fas fa-route"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="info-block">
+                <h3 class="info-block__title">
+                  <i class="fas fa-hiking"></i> Randonnées & Activités
+                </h3>
+                <p>Explorez la région à pied ou sur l'eau.</p>
+                <ul class="guide-list">
+                  <li>
+                    <span>Le Sentier du Souffleur (Port-Louis)</span>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Sentier+du+Souffleur+Port-Louis"
+                      target="_blank"
+                      class="nav-app-link"
+                      aria-label="Itinéraire vers Le Sentier du Souffleur"
+                      ><i class="fas fa-route"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <span
+                      >Activités nautiques (Surf, Paddle à Anse-Bertrand)</span
                     >
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=surf+anse+bertrand"
+                      target="_blank"
+                      class="nav-app-link"
+                      aria-label="Trouver des activités nautiques"
+                      ><i class="fas fa-route"></i
+                    ></a>
                   </li>
                 </ul>
               </div>
@@ -487,7 +599,7 @@
 
     <div id="booking-confirmation-modal" class="modal-overlay is-hidden">
       <div class="confirmation-container">
-        <button class="close-button modal-close-btn">&times;</button>
+        <button class="close-button modal-close-btn">×</button>
         <div class="confirmation-icon"><i class="fas fa-check-circle"></i></div>
         <h3>Demande de réservation reçue !</h3>
         <p>
@@ -504,7 +616,7 @@
 
     <div id="login-modal" class="modal-overlay is-hidden">
       <div class="login-container">
-        <button class="close-button modal-close-btn">&times;</button>
+        <button class="close-button modal-close-btn">×</button>
         <h3>Accès Privé</h3>
         <form id="login-form">
           <div class="form-group">
@@ -518,6 +630,16 @@
           <p class="login-error-message"></p>
           <button type="submit" class="button-primary">Connexion</button>
         </form>
+      </div>
+    </div>
+
+    <div id="rotate-device-overlay">
+      <div class="rotate-device-message">
+        <i class="fas fa-mobile-alt"></i>
+        <p>
+          Pour une meilleure expérience, veuillez pivoter votre appareil en mode
+          paysage.
+        </p>
       </div>
     </div>
 

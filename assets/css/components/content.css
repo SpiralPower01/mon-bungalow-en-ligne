@@ -1,83 +1,156 @@
 /* ====================================================== */
-/* COMPOSANT : SECTIONS DE CONTENU (INFO, RÈGLES)         */
+/* COMPOSANT : SECTIONS DE CONTENU (INFO, RÈGLES, GUIDE)  */
 /* ====================================================== */
 
+/* Titre principal pour chaque section de contenu */
 .info-section__title {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: var(--color-primary);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--color-primary);
 }
 
-/* Grille multi-colonnes responsive */
+/* Grille multi-colonnes responsive qui s'adapte à la largeur de l'écran */
 .info-grid {
-    display: grid;
-    /* Crée autant de colonnes que possible de 320px minimum */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+  display: grid;
+  /* Crée autant de colonnes que possible de 320px minimum */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
 }
 
+/* Style de base pour chaque "carte" ou "bloc" d'information */
 .info-block {
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #eee;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  display: flex; /* Utilisation de flexbox pour un meilleur contrôle du contenu */
+  flex-direction: column; /* Aligne le contenu en colonne */
 }
 
 .info-block__title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    border-bottom: 2px solid var(--color-secondary);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-secondary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .info-block__title i {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .info-block p + p {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 /* Style partagé pour les listes d'équipements */
 .amenity-list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .amenity-list__item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-    font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
 }
 
 .amenity-list__item i {
-    color: var(--color-primary);
-    width: 20px;
-    text-align: center;
+  color: var(--color-primary);
+  width: 20px;
+  text-align: center;
 }
 
-/* Style pour la carte partenaire dans le guide */
+/* --- Styles spécifiques pour le Guide des bonnes adresses --- */
+
+/* Style pour la carte du partenaire pour la mettre en valeur */
 .info-block.partner {
-    background-color: #fffaf0;
-    border-color: var(--color-secondary);
+  background-color: #fffaf0; /* Un fond légèrement crème */
+  border-color: var(--color-secondary);
 }
 
 .info-block.partner h4 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .partner-note {
-    margin-top: 1rem;
-    font-weight: 600;
-    color: var(--color-primary);
+  margin-top: auto; /* Pousse la note en bas de la carte */
+  padding-top: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.guide-item-details {
+  margin: 0.75rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.address-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.address-line i {
+  color: var(--color-primary);
+}
+
+/* NOUVEAU : Style pour l'icône de navigation personnalisée */
+.nav-app-link {
+  font-size: 1.5rem; /* Taille de l'icône */
+  color: var(--color-text-dark);
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-app-link:hover {
+  color: var(--color-primary);
+  transform: scale(1.1);
+}
+
+.guide-item-socials {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.guide-item-socials a {
+  font-size: 1.5rem;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.guide-item-socials a:hover {
+  color: var(--color-primary);
+}
+
+/* Liste pour les adresses et activités */
+.guide-list {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1; /* Permet à la liste de prendre l'espace restant */
+}
+
+.guide-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.guide-list li:last-child {
+  border-bottom: none;
 }

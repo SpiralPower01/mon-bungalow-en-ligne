@@ -10,7 +10,8 @@ export const DOM = {
   navContainer: document.querySelector(".main-nav ul"),
   allNavLinks: document.querySelectorAll(".main-nav a"),
   allPages: document.querySelectorAll(".page-content"),
-  backgroundVideo: document.querySelector("#backgroundVideo"),
+  openingVideo: document.querySelector("#openingVideo"), // Remplace l'ancienne ligne
+  mainVideo: document.querySelector("#mainVideo"), // Ajoute celle-ci
   mainCloseButton: document.querySelector(".page-container .close-button"),
 
   // Authentification
@@ -27,6 +28,10 @@ export const DOM = {
   playPauseBtn: document.querySelector(".play-pause-btn"),
   descriptionShowcase: document.querySelector(".description-showcase"),
   continueBtn: document.querySelector(".continue-btn"),
+  toggleSpeedBtn: document.querySelector("#toggle-speed-btn"),
+  skipVideoBtn: document.querySelector("#skip-video-btn"),
+  prevSceneBtn: document.querySelector("#prev-scene-btn"),
+  nextSceneBtn: document.querySelector("#next-scene-btn"),
 
   // Calendrier
   calendarContainer: document.querySelector("#doubleCalendar"),

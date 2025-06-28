@@ -1,0 +1,54 @@
+/*
+======================================================
+THÈME VISUEL : CALENDRIER DE RESERVATION (v2)
+======================================================
+*/
+
+/* On prépare les cellules à contenir notre barre en arrière-plan */
+.date-cell.selected,
+.date-cell.in-range {
+  position: relative; /* Contexte pour le positionnement de la barre */
+  background: transparent !important; /* Le fond de la cellule doit être transparent */
+  color: var(--color-text-light);
+  overflow: visible; /* Permet à notre barre de déborder */
+}
+
+/* La barre de dégradé (le pseudo-élément) */
+.date-cell.selected::before,
+.date-cell.in-range::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  height: 100%;
+  width: calc(100% + 0.5rem);
+
+  /* On utilise maintenant des variables pour le dégradé.
+     Les couleurs primaires/secondaires servent de solution de repli. */
+  background-image: linear-gradient(
+    to right,
+    var(--grad-start-color, var(--color-primary)),
+    var(--grad-end-color, var(--color-secondary))
+  );
+}
+
+/* On applique les arrondis sur la barre du premier et du dernier jour */
+.date-cell.range-start::before {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.date-cell.range-end::before {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/*
+Correction pour la dernière cellule de la période :
+Sa barre ne doit pas déborder sur la droite.
+*/
+.date-cell.range-end::before {
+  width: 100%;
+}

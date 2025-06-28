@@ -3,118 +3,207 @@
 /* ====================================================== */
 
 .video-showcase {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-    border-radius: 5px;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* On cache le curseur par défaut quand la souris est inactive sur la vidéo */
+.video-showcase.is-playing:not(.show-controls) {
+  cursor: none;
 }
 
 .video-showcase__player {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .video-showcase__controls {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0,0,0,0.3);
-    transition: opacity 0.3s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: opacity 0.4s;
 }
 
-/* Gère l'affichage des contrôles quand la vidéo joue */
+/* === GESTION DE LA VISIBILITÉ DES CONTRÔLES (CORRIGÉ) === */
+
+/* Par défaut, si la vidéo joue, les contrôles sont masqués */
 .video-showcase.is-playing .video-showcase__controls {
-    opacity: 0;
+  opacity: 0;
 }
-.video-showcase.is-playing:hover .video-showcase__controls {
-    opacity: 1;
+
+/* Les contrôles sont visibles si:
+   1. La vidéo est en pause (pas de classe .is-playing)
+   2. OU si la vidéo joue ET que la classe .show-controls est active (souris bouge)
+*/
+.video-showcase:not(.is-playing) .video-showcase__controls,
+.video-showcase.is-playing.show-controls .video-showcase__controls {
+  opacity: 1;
+}
+
+/* La règle pour la description reste prioritaire et masque tout */
+.description-showcase:not(.is-hidden) ~ .video-showcase__controls {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .play-pause-btn {
-    background: rgba(255,255,255,0.2);
-    border: 2px solid #fff;
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-    color: #fff;
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(3px);
-    transition: transform 0.2s;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+  transition: transform 0.2s;
 }
 
 .play-pause-btn:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* Styles pour la vue descriptive qui apparaît par-dessus la vidéo */
 .description-showcase {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    color: var(--color-text-light);
-    
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    
-    transition: opacity 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--color-text-light);
+
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+
+  transition: opacity 0.5s;
 }
 
 .description-showcase.is-hidden {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .description-showcase__text-content {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .description-showcase__title {
-    font-size: 2rem;
-    font-weight: 700;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .description-showcase__description {
-    font-size: 1rem;
-    max-width: 80ch;
+  font-size: 1rem;
+  max-width: 80ch;
 }
 
 .description-showcase__image-grid {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  overflow: hidden;
 }
 
 .description-showcase__image-grid img {
-    display: block;
-    max-width: 40%;
-    max-height: 80%;
-    height: auto;
-    border-radius: 5px;
-    border: 2px solid #fff;
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .description-showcase__footer {
-    text-align: right;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+/* ====================================================== */
+/* NOUVEAUX STYLES POUR LES CONTRÔLES SUPPLÉMENTAIRES     */
+/* ====================================================== */
+
+/* Conteneur pour les boutons supplémentaires de la vidéo */
+.video-extra-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+}
+
+/* Style de base pour les nouveaux boutons de contrôle vidéo */
+.control-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-btn:hover {
+  transform: scale(1.1);
+  color: var(--color-secondary);
+}
+
+.control-btn span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Style pour le bouton "Scène suivante" (secondaire) */
+.button-secondary {
+  background-color: transparent;
+  color: var(--color-text-light);
+  border: 2px solid var(--color-secondary);
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  /* Lignes à ajouter pour l'alignement */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.button-secondary:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-text-dark);
 }
